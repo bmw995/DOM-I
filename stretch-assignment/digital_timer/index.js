@@ -7,38 +7,38 @@ const msOnes = document.getElementById("msOnes");
 
 timer();
 
-function timer () {
+function timer() {
   init();
-  
-  function init () {
+
+  function init() {
     let ms = 0;
     secondTens.innerHTML = "0";
     secondOnes.innerHTML = "0";
     msHundreds.innerHTML = "0";
     msTens.innerHTML = "0";
-    
+
     const timerInterval = window.setInterval(() => {
       ms += 10;
       if (ms === 10000) {
-        endTimer(timerInterval); 
+        endTimer(timerInterval);
       }
       updateTimer(ms);
     }, 10);
   }
-  
-  function increment (string) {
+
+  function increment(string) {
     let number = Number(string) + 1;
     return number.toString();
   }
 
-  function endTimer (intervalId) {
+  function endTimer(intervalId) {
     clearInterval(intervalId);
     Array.from(digits.children).forEach(digit => {
       digit.classList.add("redDigit");
     })
   }
 
-  function updateTimer (ms) {
+  function updateTimer(ms) {
     if (ms === 10000) {
       secondTens.innerHTML = "1";
       secondOnes.innerHTML = "0";
